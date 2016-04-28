@@ -1,0 +1,29 @@
+.currentInfo {
+  box-sizing: border-box;
+  height: 200px;
+  width: 500px;
+  border: 2px solid teal;
+  margin: 5px auto;
+  padding: 20px;
+}
+
+.currentInfo table {
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+}
+
+.changeInfo {
+  box-sizing: border-box;
+  height: 150px;
+  width: 500px;
+  border: 2px solid teal;
+  margin: 5px auto;
+  padding: 10px 50px;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+  margin: 5px 10px;
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <link rel='stylesheet' href='style.css'>
+  <script src='https://code.jquery.com/jquery-1.12.3.min.js'></script>
+</head>
+<body>
+  <div class='currentInfo'></div>
+  <div class='changeInfo'>
+    Enter user name and password to make changes
+    <form action='db.php' method='post'>
+      <label for='username'>Username</label>
+      <input id='username' type='text'><br>
+      <label for='password'>Password</label>
+      <input id='password' type='password'><br>
+      <div id='warning'></div>
+      <input type='submit' id='sendLogin'>
+    </form>
+  </div>
+
+  <div class='output'></div>
+
+  <script src='js/main.js'></script>
+
+</body>
+</html>
