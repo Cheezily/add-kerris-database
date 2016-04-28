@@ -28,6 +28,7 @@ if (isset($_POST['userName']) && isset($_POST['PW']) &&
 
 function action_router($Action) {
   //echo "Action sent was ".$Action['Action'];
+  $sql = '';
 
   if ($Action['Action'] == 'Check') {
     echo 'Correct';
@@ -35,12 +36,20 @@ function action_router($Action) {
 
   if ($Action['Action'] == 'Remove') {
     $sql = 'DELETE FROM courses WHERE id = '.$Action['id'].';';
-    //echo "TRYING TO REMOVE";
-    $connection = db_connect();
-    $result = mysqli_query($connection, $sql);
-    //echo "RESULT: ".$result;
-    db_query('SELECT * FROM courses');
   }
+
+  if ($Action['Action'] == 'Insert') {
+    $sql = 'INSERT INTO courses (short_name, long_name, semester) VALUES ("'.$Action['short'].'", "'.$Action['long'].'", "'.$Action['semester'].'");';
+  }
+
+  //echo "SQL: ".$sql;
+
+  if ($sql) {
+    $connection = db_connect();
+    mysqli_query($connection, $sql);
+  }
+  db_query('SELECT * FROM courses');
+
 }
 
 

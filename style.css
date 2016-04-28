@@ -1,6 +1,16 @@
+body {
+  font-family: sans-serif;
+  font-family: 12px;
+}
+
+.warning {
+  width: 500px;
+  height: 40px;
+
+}
+
 .currentInfo {
   box-sizing: border-box;
-
   width: 500px;
   border: 2px solid teal;
   margin: 5px auto;
@@ -48,7 +58,7 @@ label {
   color: white;
   font-size: 18px;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 8px;3
 }
 
 .newCourseInfo {

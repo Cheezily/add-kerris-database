@@ -44,11 +44,11 @@ $('#sendLogin').click(function(event) {
       data: data,
       success: function(response) {
         if (response == "Invalid") {
-          $('#warning').text("Invalid username or password");
+          $('.warning').text("Invalid username or password");
           username = '';
           password = '';
         } else if (response == 'Correct'){
-          $('#warning').text("Login Successful");
+          $('.warning').text("Login Successful");
           console.log('uname: ' + username);
           console.log('pw: ' + password);
         }
@@ -57,7 +57,7 @@ $('#sendLogin').click(function(event) {
       }
     })
   } else {
-    $('#warning').text("Please enter a username and password");
+    $('.warning').text("Please enter a username and password");
   }
 });
 
@@ -65,7 +65,7 @@ $('#sendLogin').click(function(event) {
 function removeItem(item) {
   console.log('remove');
   if (!username || !password) {
-    $('#warning').text('Please log in first');
+    $('.warning').text('Please log in first');
   } else {
     console.log('hit');
     var data = "userName=" + username + "&PW=" + password +
@@ -85,8 +85,35 @@ function removeItem(item) {
 }
 
 $('.submitNew').click(function() {
-  $('.newCourseInfo').slideUp(400);
-  $('.addNew').slideDown(400);
+  if (!username || !password) {
+    $('.warning').text('Please log in first');
+  } else {
+      if ($('#cCode').val() && $('#cName').val() && $('#cSemester').val()) {
+        $('.newCourseInfo').slideUp(400);
+        $('.addNew').slideDown(400);
+
+        var data = "userName=" + username + "&PW=" + password + "&Action=Insert" +
+          "&short=" + $('#cCode').val() + "&long=" + $('#cName').val() + "&semester=" + $('#cSemester').val();
+
+        $.post({
+          url: 'db.php',
+          data: data,
+          success: function(response) {
+            $('#cCode').val('');
+            $('#cName').val('');
+            $('#cSemester').val('');
+            if (response.length == 0) {
+              $('.output').html("No results to show...");
+            } else {
+              $('.output').html(showCurrent(JSON.parse(response)));
+            }
+          }
+        })
+      } else {
+        $('.warning').text('Please Fill in Course Info');
+      }
+
+  }
 })
 
 $('.addNew').click(function() {
