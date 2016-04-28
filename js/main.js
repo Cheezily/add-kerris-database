@@ -21,9 +21,9 @@ function showCurrent(response) {
   var html = "<table><th>Class Code</th>\
   <th>Class Name</th><th>Semester</th><th>Action</th>";
   for (row in response) {
-    html += "<tr><td>" + response[row]['short_name'] +
-    "</td><td>" + response[row]['long_name'] +
-    "</td><td>" + response[row]['semester'] + "</td>" +
+    html += "<tr><td class='codeWidth'>" + response[row]['short_name'] +
+    "</td><td class='nameWidth'>" + response[row]['long_name'] +
+    "</td><td class='semesterWidth'>" + response[row]['semester'] + "</td>" +
     "<td><span class='remove' onClick=removeItem(" + response[row]['id'] + ")>Remove</span></td> "
     "</tr>";
   }
@@ -34,26 +34,25 @@ function showCurrent(response) {
 
 $('#sendLogin').click(function(event) {
   event.preventDefault();
-  $('#warning').text('');
+  $('.warning').text('');
   username = $('#username').val();
   password = $('#password').val();
   if (username && password) {
-    var data = "userName=" + username + "&PW=" + password + "&Action=Check";
+    var data = "userName=" + username + "&PW=" + password + "&Action=Login";
     $.post({
       url: 'db.php',
       data: data,
       success: function(response) {
-        if (response == "Invalid") {
+        if (response != "Logged In") {
           $('.warning').text("Invalid username or password");
           username = '';
           password = '';
-        } else if (response == 'Correct'){
-          $('.warning').text("Login Successful");
-          console.log('uname: ' + username);
-          console.log('pw: ' + password);
+        } else {
+          $('.loginBox').slideUp(400);
         }
         $('#username').val('');
         $('#password').val('');
+        $('.warning').text(response);
       }
     })
   } else {
@@ -118,7 +117,7 @@ $('.submitNew').click(function() {
 
 $('.addNew').click(function() {
   if (!username || !password) {
-    $('#warning').text('Please log in first');
+    $('.warning').text('Please log in first');
   } else {
   $('.newCourseInfo').slideDown(400);
   $('.addNew').slideUp(400);

@@ -5,7 +5,7 @@
   <script src='https://code.jquery.com/jquery-1.12.3.min.js'></script>
 </head>
 <body>
-  <div id='warning'></div>
+  <div class='warning'>Please Log In to Make Changes</div>
   <div class='currentInfo'>
     <div class='output'></div>
     <hr>
@@ -33,15 +33,14 @@
     <p class='addNew'>Click to add a new course</p>
   </div>
 
-  <div class='changeInfo'>
+  <div class='loginBox'>
     <h4>Enter user name and password to make changes</h4>
     <form action='db.php' method='post'>
       <label for='username'>Username</label>
       <input id='username' type='text'><br>
       <label for='password'>Password</label>
       <input id='password' type='password'><br>
-      <input type='submit' id='sendLogin'>
-      <div id='warning'></div>
+      <input type='submit' id='sendLogin' value='Login'>
     </form>
   </div>
 

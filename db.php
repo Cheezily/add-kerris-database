@@ -22,16 +22,18 @@ if (isset($_POST['userName']) && isset($_POST['PW']) &&
   } else if (isset($_POST['userName']) && isset($_POST['PW']) &&
     $_POST['userName'] != $user['name'] &&
     $_POST['PW'] != $user['password']) {
-    echo "Invalid";
+    echo "Invalid Username or Password";
   }
 
 
 function action_router($Action) {
   //echo "Action sent was ".$Action['Action'];
   $sql = '';
+  $skipQuery = false;
 
-  if ($Action['Action'] == 'Check') {
-    echo 'Correct';
+  if ($Action['Action'] == 'Login') {
+    echo 'Logged In';
+    $skipQuery = true;
   }
 
   if ($Action['Action'] == 'Remove') {
@@ -48,7 +50,10 @@ function action_router($Action) {
     $connection = db_connect();
     mysqli_query($connection, $sql);
   }
-  db_query('SELECT * FROM courses');
+  if ($skipQuery === false) {
+    db_query('SELECT * FROM courses');
+  }
+
 
 }
 
