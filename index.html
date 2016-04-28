@@ -5,20 +5,46 @@
   <script src='https://code.jquery.com/jquery-1.12.3.min.js'></script>
 </head>
 <body>
-  <div class='currentInfo'></div>
+  <div class='currentInfo'>
+    <div class='output'></div>
+    <hr>
+    <div class='newCourseInfo'>
+      <table>
+        <tr>
+          <th class='codeWidth'>Class Code</th>
+          <th class='nameWidth'>Class Name</th>
+          <th class='semesterWidth'>Semester</th>
+        </tr>
+        <tr>
+          <td>
+            <input class='codeWidth' type='text' id='cCode'>
+          </td>
+          <td>
+            <input class='nameWidth' type='text' id='cName'>
+          </td>
+          <td>
+            <input class='semesterWidth' type='text' id='cSemester'>
+          </td>
+        </tr>
+      </table>
+      <p class='submitNew'>Submit</p>
+    </div>
+    <p class='addNew'>Click to add a new course</p>
+  </div>
+
   <div class='changeInfo'>
-    Enter user name and password to make changes
+    <h4>Enter user name and password to make changes</h4>
     <form action='db.php' method='post'>
       <label for='username'>Username</label>
       <input id='username' type='text'><br>
       <label for='password'>Password</label>
       <input id='password' type='password'><br>
-      <div id='warning'></div>
       <input type='submit' id='sendLogin'>
+      <div id='warning'></div>
     </form>
   </div>
 
-  <div class='output'></div>
+
 
   <script src='js/main.js'></script>
 

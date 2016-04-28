@@ -1,6 +1,6 @@
 .currentInfo {
   box-sizing: border-box;
-  height: 200px;
+
   width: 500px;
   border: 2px solid teal;
   margin: 5px auto;
@@ -15,15 +15,54 @@
 
 .changeInfo {
   box-sizing: border-box;
-  height: 150px;
+  height: 180px;
   width: 500px;
   border: 2px solid teal;
   margin: 5px auto;
-  padding: 10px 50px;
+  padding: 0px 50px;
 }
 
 label {
   display: inline-block;
   width: 80px;
   margin: 5px 10px;
+}
+
+.remove {
+  box-sizing: border-box;
+  background: red;
+  display: inline-block;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+}
+
+.addNew, .submitNew {
+  box-sizing: border-box;
+  background: teal;
+  height: 30px;
+  padding-top: 4px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.newCourseInfo {
+  display: none;
+}
+
+.codeWidth {
+  width: 90px;
+}
+
+.nameWidth {
+  width: 240px;
+}
+
+.semesterWidth {
+  width: 90px;
 }
