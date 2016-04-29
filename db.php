@@ -5,7 +5,8 @@
 
 
 /*******************************************************************************
-DB has 4 columns: id (INT), short_name (TEXT), long_name (TEXT), semester (TEXT)
+DB has 5 columns: id (INT), short_name (TEXT), long_name (TEXT), semester (TEXT),
+syllabus (TEXT)*****************************************************************
 *******************************************************************************/
 
 if (isset($_GET['q']) && $_GET['q'] == "showAll") {
@@ -41,7 +42,9 @@ function action_router($Action) {
   }
 
   if ($Action['Action'] == 'Insert') {
-    $sql = 'INSERT INTO courses (short_name, long_name, semester) VALUES ("'.$Action['short'].'", "'.$Action['long'].'", "'.$Action['semester'].'");';
+    $sql = 'INSERT INTO courses (short_name, long_name, semester, syllabus_link)'
+      .' VALUES ("'.$Action['short'].'", "'.$Action['long'].'", "'
+      .$Action['semester'].'", "'.$Action['syllabus'].'");';
   }
 
   //echo "SQL: ".$sql;

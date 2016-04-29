@@ -19,11 +19,12 @@ $(document).ready(function() {
 
 function showCurrent(response) {
   var html = "<table><th>Class Code</th>\
-  <th>Class Name</th><th>Semester</th><th>Action</th>";
+  <th>Class Name</th><th>Semester</th><th>Syllabus Filename</th><th>Action</th>";
   for (row in response) {
     html += "<tr><td class='codeWidth'>" + response[row]['short_name'] +
     "</td><td class='nameWidth'>" + response[row]['long_name'] +
     "</td><td class='semesterWidth'>" + response[row]['semester'] + "</td>" +
+    "</td><td class='syllabusWidth'>" + response[row]['syllabus_link'] + "</td>" +
     "<td><span class='remove' onClick=removeItem(" + response[row]['id'] + ")>Remove</span></td> "
     "</tr>";
   }
@@ -52,6 +53,7 @@ $('#sendLogin').click(function(event) {
         }
         $('#username').val('');
         $('#password').val('');
+        $('.warning').addClass('loggedIn');
         $('.warning').text(response);
       }
     })
@@ -92,7 +94,8 @@ $('.submitNew').click(function() {
         $('.addNew').slideDown(400);
 
         var data = "userName=" + username + "&PW=" + password + "&Action=Insert" +
-          "&short=" + $('#cCode').val() + "&long=" + $('#cName').val() + "&semester=" + $('#cSemester').val();
+          "&short=" + $('#cCode').val() + "&long=" + $('#cName').val()
+          + "&semester=" + $('#cSemester').val() + "&syllabus=" + $('#cSyllabus').val();
 
         $.post({
           url: 'db.php',

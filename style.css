@@ -4,21 +4,26 @@ body {
 }
 
 .warning {
-  background: teal;
+  background: white;
   box-sizing: border-box;
-  width: 670px;
+  width: 960px;
   height: 40px;
   margin: 0 auto;
   padding-top: 5px;
-  color: white;
+  color: red;
   font-size: 22px;
   text-align: center;
   border: 2px solid teal;
 }
 
+.loggedIn {
+  background: teal;
+  color: white;
+}
+
 .currentInfo {
   box-sizing: border-box;
-  width: 670px;
+  width: 960px;
   border: 2px solid teal;
   margin: 5px auto;
   padding: 20px;
@@ -33,7 +38,7 @@ body {
 .loginBox {
   box-sizing: border-box;
   height: 180px;
-  width: 670px;
+  width: 960px;
   border: 2px solid teal;
   margin: 5px auto;
   padding: 0px 50px;
@@ -77,7 +82,7 @@ label {
 }
 
 .newCourseInfo {
-  display: none;
+  display: none;3
 }
 
 .codeWidth {
@@ -90,4 +95,8 @@ label {
 
 .semesterWidth {
   width: 140px;
+}
+
+.syllabusWidth {
+  width: 190px;
 }
